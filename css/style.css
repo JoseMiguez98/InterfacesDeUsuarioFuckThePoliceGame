@@ -1,0 +1,29 @@
+body, html{
+  background-color: black;
+}
+
+@keyframes bk-move-anim {
+  from {background-position: 0px 0px;}
+  to {background-position: 0px 650px;}
+}
+
+.road{
+  width: 840px;
+  height: 650px;
+  left: 250px;
+  position: absolute;
+  background-image: url('../img/background/1.png');
+}
+
+.roadAnim{
+  animation: bk-move-anim 7s linear forwards infinite;
+}
+
+.player{
+  width: 110px;
+  height: 110px;
+  left: 400px;
+  top: 500px;
+  position: absolute;
+  background-image: url('../img/cars/resized/black_viper.png');
+}
