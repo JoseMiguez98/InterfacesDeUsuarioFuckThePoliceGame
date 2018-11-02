@@ -1,0 +1,19 @@
+function InputManager(){
+  this.keys =
+  { w : 87,
+    a : 65,
+    s : 83,
+    d : 68 ,
+    ArrowUp : 38,
+    ArrowRight : 39,
+    ArrowDown : 40,
+    ArrowLeft : 37
+  }
+}
+
+InputManager.prototype.keyPressed = function(e,key){
+  if(e.keyCode===this.keys[key]){
+    return true;
+  }
+  return false;
+}

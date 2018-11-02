@@ -3,8 +3,6 @@ function Player(_x_off,_y_off,_life,_className){
   this.yOffset = _y_off+"px";
   this.life = _life;
   this.className = _className;
-
-
 }
 
 Player.prototype.moveRight = function(x_off){
@@ -13,9 +11,22 @@ Player.prototype.moveRight = function(x_off){
   $("."+this.className).css("left", this.xOffset);
 }
 
-Player.prototype.moveLeft = function(y_off){
-  let actualOffset = Integer.parseInt(this.yOffset.replace("px",""));
+Player.prototype.moveLeft = function(x_off){
+  let actualOffset = parseInt(this.xOffset.replace("px",""));
+  this.xOffset = (actualOffset-x_off) + "px";
+  $("."+this.className).css("left", this.xOffset);
+}
+
+Player.prototype.moveUp = function(y_off){
+  let actualOffset = parseInt(this.yOffset.replace("px",""));
+  this.yOffset = (actualOffset-y_off) + "px";
+  $("."+this.className).css("top", this.yOffset);
+}
+
+Player.prototype.moveDown = function(y_off){
+  let actualOffset = parseInt(this.yOffset.replace("px",""));
   this.yOffset = (actualOffset+y_off) + "px";
+  $("."+this.className).css("top", this.yOffset);
 }
 
 Player.prototype.generateDiv = function(){
