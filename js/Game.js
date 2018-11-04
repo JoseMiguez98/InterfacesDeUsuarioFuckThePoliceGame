@@ -12,7 +12,7 @@ function update(inputManager, actionsManager, player){
 }
 
 $(document).ready(function(){
-  let player = new Player(400,500,100,"player");
+  let player = new Player(400,500,100,9,"player");
   let inputManager = new InputManager();
   let actionsManager = new ActionsManager();
 
