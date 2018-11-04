@@ -9,6 +9,17 @@ function InputManager(){
     ArrowDown : 40,
     ArrowLeft : 37
   }
+
+  this.keysDown =
+  { w : false,
+    a : false,
+    s : false,
+    d : false,
+    ArrowUp : false,
+    ArrowRight : false,
+    ArrowDown : false,
+    ArrowLeft : false
+  }
 }
 
 InputManager.prototype.keyPressed = function(e,key){
@@ -16,4 +27,10 @@ InputManager.prototype.keyPressed = function(e,key){
     return true;
   }
   return false;
+}
+
+InputManager.prototype.setKeyPressed = function(key,value){
+  if(key in this.keys){
+    this.keysDown[key] = value;
+  }
 }
