@@ -7,6 +7,10 @@ body, html{
   to {background-position: 0px 650px;}
 }
 
+@keyframes police-animation {
+  100% {background-position: -336px;}
+}
+
 .road{
   width: 840px;
   height: 650px;
@@ -19,6 +23,13 @@ body, html{
   animation: bk-move-anim 7s linear forwards infinite;
 }
 
+.roadLimit{
+  width: 68%;
+  height: 100%;
+  left: 16%;
+  position: absolute;
+}
+
 .player{
   width: 110px;
   height: 110px;
@@ -26,4 +37,13 @@ body, html{
   top: 500px;
   position: absolute;
   background-image: url('../img/cars/resized/black_viper.png');
+}
+
+.enemie{
+  width: 110px;
+  height: 110px;
+  top: -500px;
+  position: absolute;
+  animation: police-animation 2s steps(3) infinite;
+  background-image: url('../img/cars/resized/police_animation/police_sheet.png');
 }

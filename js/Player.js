@@ -1,39 +1,33 @@
-function Player(_x_off,_y_off,_life,_speed,_className){
-  this.xOffset = _x_off+"px";
-  this.yOffset = _y_off+"px";
-  this.life = _life;
+function Player(_x_off,_y_off,_speed,_className){
+  this.xOffset = _x_off;
+  this.yOffset = _y_off;
   this.className = _className;
-  this.generateDiv();
   this.speed = _speed;
 }
 
 Player.prototype.moveRight = function(){
-  let road_width = parseInt(($(".road").css('width')).replace("px",""));
-  let limitR = (84*road_width)/100;
-  let actualOffset = parseInt(this.xOffset.replace("px",""));
-  if(actualOffset-175<=limitR){
-    this.xOffset = (actualOffset+this.speed) + "px";
-    $("."+this.className).css("left", this.xOffset);
+  let road_limit_width = parseInt(($(".roadLimit").css('width')).replace("px",""));
+  let player_width = parseInt(($(".player").css('height')).replace('px',''));
+  if(this.xOffset<=road_limit_width-player_width){
+    this.xOffset += this.speed;
+    $("."+this.className).css("left", this.xOffset+"px");
   }
 }
 
 Player.prototype.moveLeft = function(){
-  let road_width = parseInt(($(".road").css('width')).replace("px",""));
-  let limitL = (16*road_width)/100;
-  let actualOffset = parseInt(this.xOffset.replace("px",""));
-  if(actualOffset-225>=limitL){
-    this.xOffset = (actualOffset-this.speed) + "px";
-    $("."+this.className).css("left", this.xOffset);
+  let road_limit_width = parseInt(($(".roadLimit").css('width')).replace("px",""));
+  if(this.xOffset>=0){
+    this.xOffset -= this.speed;
+    $("."+this.className).css("left", this.xOffset+"px");
   }
 }
 
 Player.prototype.moveUp = function(){
   let road_width = parseInt(($(".road").css('width')).replace("px",""));
   let road_top = parseInt(($(".road").css('top')).replace("px",""));
-  let actualOffset = parseInt(this.yOffset.replace("px",""));
-  if(actualOffset>=road_top){
-    this.yOffset = (actualOffset-this.speed) + "px";
-    $("."+this.className).css("top", this.yOffset);
+  if(this.yOffset>=road_top){
+    this.yOffset -= this.speed;
+    $("."+this.className).css("top", this.yOffset+"px");
   }
 }
 
@@ -42,22 +36,8 @@ Player.prototype.moveDown = function(){
   let road_height = parseInt(($(".road").css('height')).replace("px",""));
   let road_top = parseInt(($(".road").css('top')).replace("px",""));
   let limitB = road_top+road_height;
-  let actualOffset = parseInt(this.yOffset.replace("px",""));
-  if(actualOffset+110<=limitB){
-    this.yOffset = (actualOffset+this.speed) + "px";
-    $("."+this.className).css("top", this.yOffset);
+  if(this.yOffset+115<=limitB){
+    this.yOffset += this.speed;
+    $("."+this.className).css("top", this.yOffset+"px");
   }
-}
-
-Player.prototype.generateDiv = function(){
-  let image = new Image();
-  image.src = "../img/cars/resized/black_viper.png";
-  $("body").append("<div class="+this.className+"></div>");
-  image.onload = function(){
-    $("."+this.className).css("background-image", "url("+image.src+")");
-    $("."+this.className).css("width", image.clientWidth);
-    $("."+this.className).css("height", image.clientHeight);
-  }
-  $("."+this.className).css("left", this.xOffset);
-  $("."+this.className).css("top", this.yOffset);
 }
