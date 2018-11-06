@@ -59,3 +59,22 @@ body, html{
   background-image: url('../img/explosion/explosion.png');
   animation: explosion 2s steps(52);
 }
+
+.scoreBox{
+  width: 240px;
+  height: 100px;
+  left: 2px;
+  position: absolute;
+  color: white;
+  font-size: small;
+}
+
+.scoreNumbers{
+  width: 140px;
+  height: 100px;
+  left: 100px;
+  top: -12px;
+  position: absolute;
+  color: white;
+  font-size: 30px;
+}

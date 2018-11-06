@@ -12,13 +12,15 @@ function gameOver(){
   });
 }
 
-function update(inputManager, actionsManager, player, enemies, alive){
+function update(inputManager,actionsManager,player,enemies,alive,scoremanager){
   if(alive){
     for (let key in inputManager.keysDown){
       if(inputManager.keysDown[key]){
         eval(actionsManager.getAction(key));
       }
     }
+
+    $('.scoreNumbers').html('<p>'+scoremanager.getScore()+'</p>');
   }
 
   for (let i = 0; i < enemies.length; i++) {
@@ -30,18 +32,20 @@ function update(inputManager, actionsManager, player, enemies, alive){
   }
 
   window.requestAnimationFrame(function(){
-    update(inputManager,actionsManager,player,enemies,alive);
+    update(inputManager,actionsManager,player,enemies,alive,scoremanager);
   });
-
 }
 
 $(document).ready(function(){
   let player = new Player(400,500,9,"player");
+  let scoremanager = new ScoreManager();
   let enemies = [];
   let alive = true;
   for (var i = 0; i < 4; i++) {
     enemies.push(new Enemie(i));
   }
+
+  scoremanager.start();
 
   let inputManager = new InputManager();
   let actionsManager = new ActionsManager();
@@ -56,6 +60,6 @@ $(document).ready(function(){
 
   // update(inputManager,actionsManager);
   window.requestAnimationFrame(function(){
-    update(inputManager,actionsManager,player,enemies,alive);
+    update(inputManager,actionsManager,player,enemies,alive,scoremanager);
   });
 });
