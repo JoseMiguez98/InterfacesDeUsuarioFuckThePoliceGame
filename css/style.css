@@ -11,6 +11,10 @@ body, html{
   100% {background-position: -336px;}
 }
 
+@keyframes explosion {
+  100% {background-position: -14352px}
+}
+
 .road{
   width: 840px;
   height: 650px;
@@ -46,4 +50,12 @@ body, html{
   position: absolute;
   animation: police-animation 2s steps(3) infinite;
   background-image: url('../img/cars/resized/police_animation/police_sheet.png');
+}
+
+.explosion{
+  width: 256px;
+  height: 256px;
+  transform: translate(-80px, -10px);
+  background-image: url('../img/explosion/explosion.png');
+  animation: explosion 2s steps(52);
 }

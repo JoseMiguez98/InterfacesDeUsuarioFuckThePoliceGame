@@ -16,6 +16,15 @@ Enemie.prototype.getSpeed = function(){
   return Math.floor(Math.random()*5)+3;
 }
 
+Enemie.prototype.collisionPlayer = function(){
+  let enm_rect = $('#enm_'+this.id).get(0).getBoundingClientRect();
+  let elm_rect = $('.player').get(0).getBoundingClientRect();
+  let dx = enm_rect.width-60;
+  let dy = enm_rect.height-10;
+
+  return Math.abs(enm_rect.x-elm_rect.x)<dx && Math.abs(enm_rect.y-elm_rect.y)<dy;
+}
+
 Enemie.prototype.move = function(){
   let road_limit_height = parseInt(($(".roadLimit").css("height")).replace("px"));
   if(this.yOffset<=this.y1){

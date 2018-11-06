@@ -1,18 +1,36 @@
 "use strict";
 
-function update(inputManager, actionsManager, player, enemies){
-  for (let key in inputManager.keysDown){
-    if(inputManager.keysDown[key]){
-      eval(actionsManager.getAction(key));
+
+function gameOver(){
+  let player = $('.player');
+  player.addClass('explosion');
+
+  player.one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
+  function(e) {
+    player.removeClass('explosion');
+    player.css('background-image','none');
+  });
+}
+
+function update(inputManager, actionsManager, player, enemies, alive){
+  if(alive){
+    for (let key in inputManager.keysDown){
+      if(inputManager.keysDown[key]){
+        eval(actionsManager.getAction(key));
+      }
     }
   }
 
-  enemies.forEach(function(enemie){
-    enemie.move();
-  })
+  for (let i = 0; i < enemies.length; i++) {
+    enemies[i].move();
+    if(enemies[i].collisionPlayer()){
+      gameOver();
+      alive = false;
+    }
+  }
 
   window.requestAnimationFrame(function(){
-    update(inputManager,actionsManager,player,enemies);
+    update(inputManager,actionsManager,player,enemies,alive);
   });
 
 }
@@ -20,6 +38,7 @@ function update(inputManager, actionsManager, player, enemies){
 $(document).ready(function(){
   let player = new Player(400,500,9,"player");
   let enemies = [];
+  let alive = true;
   for (var i = 0; i < 4; i++) {
     enemies.push(new Enemie(i));
   }
@@ -37,6 +56,6 @@ $(document).ready(function(){
 
   // update(inputManager,actionsManager);
   window.requestAnimationFrame(function(){
-    update(inputManager,actionsManager,player,enemies);
+    update(inputManager,actionsManager,player,enemies,alive);
   });
 });
