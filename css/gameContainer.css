@@ -156,7 +156,7 @@
   position: absolute;
 }
 
-#playRestartButton{
+#playButton,#restartButton{
   left: 860px;
   top: 530px;
   width: 300px;
@@ -167,7 +167,11 @@
   transition: background-color 0.5s, color 0.5s;
 }
 
-#playRestartButton:hover{
+#playButton:hover, #restartButton:hover{
   background-color: black;
   color: white;
+}
+
+#restartButton{
+  display: none;
 }

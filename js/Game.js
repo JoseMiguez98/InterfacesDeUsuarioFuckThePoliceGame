@@ -3,8 +3,8 @@
 
 function gameOver(){
   let player = $('.player');
+  player.css('background-image','url(img/explosion/explosion.png)');
   player.addClass('explosion');
-
   player.one('webkitAnimationEnd oanimationend msAnimationEnd animationend',
   function(e) {
     player.removeClass('explosion');
@@ -12,8 +12,8 @@ function gameOver(){
   });
 }
 
-function update(inputManager,actionsManager,player,enemies,alive,scoremanager){
-  if(alive){
+function update(inputManager,actionsManager,player,enemies,scoremanager){
+  if(player.isAlive()){
     for (let key in inputManager.keysDown){
       if(inputManager.keysDown[key]){
         eval(actionsManager.getAction(key));
@@ -27,12 +27,12 @@ function update(inputManager,actionsManager,player,enemies,alive,scoremanager){
     enemies[i].move();
     if(enemies[i].collisionPlayer()){
       gameOver();
-      alive = false;
+      player.alive = false;
     }
   }
 
   window.requestAnimationFrame(function(){
-    update(inputManager,actionsManager,player,enemies,alive,scoremanager);
+    update(inputManager,actionsManager,player,enemies,scoremanager);
   });
 }
 
@@ -40,10 +40,9 @@ $(document).ready(function(){
   let player = new Player(400,500,9,"player");
   let scoremanager = new ScoreManager();
   let enemies = [];
-  let alive = true;
   let inputManager = new InputManager();
   let actionsManager = new ActionsManager();
-  for (var i = 0; i < 4; i++) {
+  for (let i = 0; i < 4; i++) {
     enemies.push(new Enemie(i));
   }
 
@@ -51,13 +50,26 @@ $(document).ready(function(){
 
 
   $(document).on("keydown",function(e) {
+    console.log("asd");
     inputManager.setKeyPressed(e.key,true);
   });
   $(document).on("keyup",function(e) {
     inputManager.setKeyPressed(e.key,false);
   });
 
-  window.requestAnimationFrame(function(){
-    update(inputManager,actionsManager,player,enemies,alive,scoremanager);
+  $('#playButton').on('click',function(){
+    $(this).css('display','none');
+    $('#restartButton').css('display','block');
+    window.requestAnimationFrame(function(){
+      update(inputManager,actionsManager,player,enemies,scoremanager);
+    });
+  });
+
+  $('#restartButton').on('click',function(){
+    player.restart();
+    scoremanager.restart();
+    for (let i = 0; i < enemies.length; i++) {
+      enemies[i].restart();
+    }
   });
 });

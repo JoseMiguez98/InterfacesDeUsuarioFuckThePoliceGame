@@ -58,3 +58,9 @@ Enemie.prototype.generateLimit = function(){
   let road_limit_height = parseInt(($(".roadLimit").css("height")).replace("px"));
   return road_limit_height+(this.y0*-1)+100;
 }
+
+Enemie.prototype.restart = function(){
+  this.yOffset = -500;
+  this.xOffset = this.generateXPosition();
+  this.speed = this.getSpeed();
+}
