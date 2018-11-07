@@ -3,17 +3,53 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/gameContainer.css">
   <title>Vertical-Scrolling</title>
 </head>
 <body>
-  <div class="road roadAnim">
-    <div class="roadLimit">
-      <div class="player"></div>
+  <div id="principalContainer">
+    <div id="hideCarsBoxTop"></div>
+    <div id="coverContainer">
+      <img id="coverImg" src="img/cover/cover.jpg" alt="cover">
+      <img id="coverText" src="img/cover/text.png" alt="cover">
     </div>
-  </div>
-  <div class="scoreBox">
-    <h1>Score:</h1>
-    <div class="scoreNumbers">
+    <div id="additionalInfoContainer">
+      <span id="rateTitle">Valoración:</span><br>
+      <img id="rateImg" src="img/rate/rate.png" alt="valoracion">
+      <div id="separatorInfoLine"></div>
+      <span id="rankingTitle">High Scores:</span>
+      <ul id="rankingList">
+        <li>Walter White : 2500</li>
+        <li>Jesse Pinkman : 2000</li>
+        <li>Gus Fring : 1500</li>
+        <li>Hank Schrader : 1000</li>
+      </ul>
+    </div>
+    <div id="gameTitle">
+      <h1>Fuck the police!</h1>
+    </div>
+    <div class="road roadAnim">
+      <div class="roadLimit">
+        <div class="player"></div>
+      </div>
+    </div>
+    <div class="scoreBox">
+      <h1>Score:</h1>
+      <div class="scoreNumbers">
+      </div>
+    </div>
+    <div id="hideCarsBoxBottom"></div>
+    <button id="playRestartButton" type="button" name="button">Jugar</button>
+    <div id="descriptionBox">
+      <span id="descriptionTitle">Descripción:</span>
+      <p id="descriptionText">Huye de la policia y suma puntos!</p>
+    </div>
+    <div id="separatorLine"></div>
+    <div id="controlsBox">
+      <span id="controlsTitle">Controles:</span><br>
+      <img id="wasdImg" src="img/controls/wasd.png" alt="controls">
+      <span id="orSpan">O</span>
+      <img id="arrowsImg" src="img/controls/arrowKeys.png" alt="controls">
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

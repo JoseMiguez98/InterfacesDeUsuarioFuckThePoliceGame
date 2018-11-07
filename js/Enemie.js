@@ -27,6 +27,7 @@ Enemie.prototype.collisionPlayer = function(){
 
 Enemie.prototype.move = function(){
   let road_limit_height = parseInt(($(".roadLimit").css("height")).replace("px"));
+  let road_limit_top = parseInt(($(".roadLimit").css("top")).replace("px"));
   if(this.yOffset<=this.y1){
     if(this.yOffset>road_limit_height){
       $("#enm_"+this.id).css("display","none");

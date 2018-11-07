@@ -1,5 +1,6 @@
 body, html{
   background-color: black;
+  color: rgb(51,51,51);
 }
 
 @keyframes bk-move-anim {
@@ -16,9 +17,11 @@ body, html{
 }
 
 .road{
-  width: 840px;
-  height: 650px;
-  left: 250px;
+  width: 750px;
+  height: 560px;
+  left:10px;
+  top: 50px;
+  border-radius: 10px;
   position: absolute;
   background-image: url('../img/background/1.png');
 }
@@ -28,9 +31,9 @@ body, html{
 }
 
 .roadLimit{
-  width: 68%;
-  height: 100%;
-  left: 16%;
+  width: 76%;
+  height: 95%;
+  left: 18%;
   position: absolute;
 }
 
@@ -38,7 +41,7 @@ body, html{
   width: 110px;
   height: 110px;
   left: 400px;
-  top: 500px;
+  top: 420px;
   position: absolute;
   background-image: url('../img/cars/resized/black_viper.png');
 }
@@ -55,7 +58,7 @@ body, html{
 .explosion{
   width: 256px;
   height: 256px;
-  transform: translate(-80px, -10px);
+  transform: translate(-80px, -50px);
   background-image: url('../img/explosion/explosion.png');
   animation: explosion 2s steps(52);
 }
@@ -63,9 +66,9 @@ body, html{
 .scoreBox{
   width: 240px;
   height: 100px;
-  left: 2px;
+  left: 800px;
+  top: 450px;
   position: absolute;
-  color: white;
   font-size: small;
 }
 
@@ -75,6 +78,5 @@ body, html{
   left: 100px;
   top: -12px;
   position: absolute;
-  color: white;
   font-size: 30px;
 }

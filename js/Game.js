@@ -41,14 +41,14 @@ $(document).ready(function(){
   let scoremanager = new ScoreManager();
   let enemies = [];
   let alive = true;
+  let inputManager = new InputManager();
+  let actionsManager = new ActionsManager();
   for (var i = 0; i < 4; i++) {
     enemies.push(new Enemie(i));
   }
 
   scoremanager.start();
 
-  let inputManager = new InputManager();
-  let actionsManager = new ActionsManager();
 
   $(document).on("keydown",function(e) {
     inputManager.setKeyPressed(e.key,true);
@@ -57,8 +57,6 @@ $(document).ready(function(){
     inputManager.setKeyPressed(e.key,false);
   });
 
-
-  // update(inputManager,actionsManager);
   window.requestAnimationFrame(function(){
     update(inputManager,actionsManager,player,enemies,alive,scoremanager);
   });

@@ -24,7 +24,7 @@ Player.prototype.moveLeft = function(){
 Player.prototype.moveUp = function(){
   let road_width = parseInt(($(".road").css('width')).replace("px",""));
   let road_top = parseInt(($(".road").css('top')).replace("px",""));
-  if(this.yOffset>=road_top){
+  if(this.yOffset+40>=road_top){
     this.yOffset -= this.speed;
     $(".player").css("top", this.yOffset+"px");
   }
@@ -35,7 +35,7 @@ Player.prototype.moveDown = function(){
   let road_height = parseInt(($(".road").css('height')).replace("px",""));
   let road_top = parseInt(($(".road").css('top')).replace("px",""));
   let limitB = road_top+road_height;
-  if(this.yOffset+115<=limitB){
+  if(this.yOffset+160<=limitB){
     this.yOffset += this.speed;
     $(".player").css("top", this.yOffset+"px");
   }

@@ -1,0 +1,173 @@
+#principalContainer{
+  background: rgb(250, 221, 144) none repeat scroll 0% 0%;
+  position: absolute;
+  width: 1250px;
+  height: 1000px;
+  top: 13.5px;
+  left: 31.5px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 15px;
+  z-index: -1;
+}
+
+#gameTitle{
+  left: 20px;
+  top: -15px;
+  position: absolute;
+  z-index: 2;
+}
+
+#hideCarsBoxBottom{
+  width: 565px;
+  height: 100px;
+  position: absolute;
+  left: 150px;
+  top:610px;
+  z-index:1;
+  background-color: inherit;
+}
+
+#hideCarsBoxTop{
+  width: 565px;
+  height: 50px;
+  position: absolute;
+  left: 150px;
+  top:0px;
+  z-index:1;
+  background-color: inherit;
+}
+
+#descriptionBox, #controlsBox{
+  font-family: "Source Sans Pro";
+  text-align: left;
+  top: 650px;
+  position: absolute;
+  z-index: 1;
+}
+
+#descriptionBox{
+  left: 20px;
+}
+
+#controlsBox{
+  left: 600px;
+}
+
+#descriptionTitle, #controlsTitle{
+  font-size: 35px;
+  clear: right;
+}
+
+#descriptionText{
+  font-size: 25px;
+}
+
+#wasdImg, #arrowsImg{
+  max-width: 220px;
+  max-height: 220px;
+  top: 100px;
+  position: absolute;
+}
+
+#wasdImg{
+  float: left;
+}
+
+#orSpan{
+  font-size: 50px;
+  top: 150px;
+  left: 275px;
+  position: absolute;
+}
+
+#arrowsImg{
+  left: 370px;
+}
+
+#separatorLine{
+  width:3px;
+  height: 330px;
+  background-color: rgb(51,51,51);
+  position: absolute;
+  left: 550px;
+  top: 650px;
+  z-index: 1;
+}
+
+#coverContainer{
+  position: absolute;
+  left: 775px;
+  top: 50px;
+  z-index: 2;
+}
+
+#coverImg{
+  max-width: 460px;
+  max-height: 600px;
+  border-radius: 10px;
+}
+
+#coverText{
+  top: 5px;
+  left: 15px;
+  position: absolute;
+  max-width: 150px;
+  max-height: 150px;
+}
+
+#additionalInfoContainer{
+  width: 450px;
+  height: 170px;
+  position: absolute;
+  left: 780px;
+  top: 290px;
+}
+
+#rateImg{
+  max-width: 200px;
+  max-height: 200px;
+}
+
+#rateTitle{
+  font-weight: bold;
+  font-size: 25px;
+}
+
+#separatorInfoLine{
+  width: 3px;
+  height: 140px;
+  background-color: rgb(51,51,51);
+  left: 213px;
+  top: 15px;
+  position: absolute;
+}
+
+#rankingTitle{
+  font-weight: bold;
+  font-size: 25px;
+  left: 240px;
+  top: 5px;
+  position: absolute;
+}
+
+#rankingList{
+  left:210px;
+  top: 25px;
+  position: absolute;
+}
+
+#playRestartButton{
+  left: 860px;
+  top: 530px;
+  width: 300px;
+  height: 50px;
+  font-size: 30px;
+  position: absolute;
+  background-color: lightGreen;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+#playRestartButton:hover{
+  background-color: black;
+  color: white;
+}
