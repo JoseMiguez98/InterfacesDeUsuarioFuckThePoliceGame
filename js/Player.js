@@ -11,6 +11,7 @@ Player.prototype.moveRight = function(){
   if(this.xOffset<=road_limit_width-player_width){
     this.xOffset += this.speed;
     $(".player").css("left", this.xOffset+"px");
+    $(".player").css("transform", "rotate(25deg)");
   }
 }
 
@@ -19,6 +20,7 @@ Player.prototype.moveLeft = function(){
   if(this.xOffset>=0){
     this.xOffset -= this.speed;
     $(".player").css("left", this.xOffset+"px");
+    $(".player").css("transform", "rotate(-25deg)");
   }
 }
 

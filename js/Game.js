@@ -50,11 +50,11 @@ $(document).ready(function(){
 
 
   $(document).on("keydown",function(e) {
-    console.log("asd");
     inputManager.setKeyPressed(e.key,true);
   });
   $(document).on("keyup",function(e) {
     inputManager.setKeyPressed(e.key,false);
+    $('.player').css('transform','none');
   });
 
   $('#playButton').on('click',function(){
