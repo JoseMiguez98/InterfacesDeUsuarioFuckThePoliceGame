@@ -83,6 +83,9 @@ class GameScene extends Phaser.Scene {
       align: 'center'
     }).setOrigin(0.5).setDepth(20).setAlpha(0);
 
+    // ── Touch D-pad (shown only on touch-capable devices) ─────────────────
+    this.dpad = this.sys.game.device.input.touch ? new DPad(this) : null;
+
     // Collision flag — set to false once game over begins
     this.collisionActive = true;
   }
@@ -95,8 +98,8 @@ class GameScene extends Phaser.Scene {
     const tier = this.difficultyManager.getCurrentTier();
     this.road.tilePositionY -= tier.scrollSpeed;
 
-    // Player movement
-    this.player.update();
+    // Player movement (pass dpad so touch input is merged with keyboard)
+    this.player.update(this.dpad);
 
     // Enemy movement & recycling
     this.enemyGroup.update();
