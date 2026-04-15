@@ -24,11 +24,12 @@ class Player extends Phaser.Physics.Arcade.Sprite {
     this.maxY = 570;
   }
 
-  update() {
-    const left  = this.cursors.left.isDown  || this.wasd.A.isDown;
-    const right = this.cursors.right.isDown || this.wasd.D.isDown;
-    const up    = this.cursors.up.isDown    || this.wasd.W.isDown;
-    const down  = this.cursors.down.isDown  || this.wasd.S.isDown;
+  // dpad is an optional DPad instance; null on desktop
+  update(dpad) {
+    const left  = this.cursors.left.isDown  || this.wasd.A.isDown || (dpad && dpad.left);
+    const right = this.cursors.right.isDown || this.wasd.D.isDown || (dpad && dpad.right);
+    const up    = this.cursors.up.isDown    || this.wasd.W.isDown || (dpad && dpad.up);
+    const down  = this.cursors.down.isDown  || this.wasd.S.isDown || (dpad && dpad.down);
 
     let vx = 0;
     let vy = 0;

@@ -9,6 +9,11 @@ const config = {
   height: 640,
   parent: 'game-container',
   backgroundColor: '#2a2a2a',
+  // Scale to fit any screen (phone, tablet, desktop) while keeping aspect ratio
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH
+  },
   physics: {
     default: 'arcade',
     arcade: {
