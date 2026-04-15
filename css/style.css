@@ -1,83 +1,17 @@
-body, html{
-  background-color: black;
-  color: rgb(51,51,51);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@keyframes bk-move-anim {
-  from {background-position: 0px 0px;}
-  to {background-position: 0px 650px;}
+body {
+  background: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-@keyframes police-animation {
-  100% {background-position: -336px;}
-}
-
-@keyframes explosion {
-  100% {background-position: -14352px}
-}
-
-.road{
-  width: 750px;
-  height: 560px;
-  left:10px;
-  top: 50px;
-  border-radius: 10px;
-  position: absolute;
-  background-image: url('../img/background/1.png');
-}
-
-.roadAnim{
-  animation: bk-move-anim 7s linear forwards infinite;
-}
-
-.roadLimit{
-  width: 76%;
-  height: 95%;
-  left: 18%;
-  position: absolute;
-}
-
-.player{
-  width: 110px;
-  height: 110px;
-  left: 400px;
-  top: 420px;
-  position: absolute;
-  background-image: url('../img/cars/resized/black_viper.png');
-  transition: transform 0.3s;
-}
-
-.enemie{
-  width: 110px;
-  height: 110px;
-  top: -500px;
-  position: absolute;
-  animation: police-animation 2s steps(3) infinite;
-  background-image: url('../img/cars/resized/police_animation/police_sheet.png');
-}
-
-.explosion{
-  width: 256px;
-  height: 256px;
-  transform: translate(-80px, -50px);
-  background-image: url('../img/explosion/explosion.png');
-  animation: explosion 2s steps(52);
-}
-
-.scoreBox{
-  width: 240px;
-  height: 100px;
-  left: 800px;
-  top: 450px;
-  position: absolute;
-  font-size: small;
-}
-
-.scoreNumbers{
-  width: 140px;
-  height: 100px;
-  left: 100px;
-  top: -12px;
-  position: absolute;
-  font-size: 30px;
+#game-container canvas {
+  display: block;
 }
